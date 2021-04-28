@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     Button btDiv;
     Button btPlus;
     Button btMoins;
+    Button btequal;
+    static boolean isOperator =false;
 
 
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvResult= (TextView) findViewById(R.id.tvResult);
+        tvResult.setText("");
         bt0  = (Button) findViewById(R.id.button0);
         bt1 = (Button) findViewById(R.id.button1);
         bt2  = (Button) findViewById(R.id.button2);
@@ -51,96 +54,8 @@ public class MainActivity extends AppCompatActivity {
         btPlus= (Button) findViewById(R.id.buttonPlus);
         btMoins= (Button) findViewById(R.id.buttonMoins);
 
+        btequal= (Button) findViewById(R.id.buttonequal);
 
-        btMoins.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isEqual(btMoins))
-                    return;
-
-                writeNumber(btMoins);
-            }
-        });
-        btPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(btPlus);
-            }
-        });
-        btDiv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(btDiv);
-            }
-        });
-        btVirg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(btVirg);
-            }
-        });
-
-        bt0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt0);
-            }
-        });
-
-        bt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt1);
-            }
-        });
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt2);
-            }
-        });
-        bt3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt3);
-            }
-        });
-        bt4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt4);
-            }
-        });
-        bt5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt5);
-            }
-        });
-        bt6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt6);
-            }
-        });
-        bt7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt7);
-            }
-        });
-        bt8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt8);
-            }
-        });
-        bt9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                writeNumber(bt9);
-            }
-        });
         btSupp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,12 +64,128 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        btMoins.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isOperator||tvResult.getText()=="")
+                    return;
+                writeNumber(btMoins);
+                isOperator=true;
+            }
+        });
+        btPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isOperator||tvResult.getText()=="")
+                    return;
+                writeNumber(btPlus);
+                isOperator=true;
+            }
+        });
+        btDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isOperator||tvResult.getText()=="")
+                    return;
+                writeNumber(btDiv);
+                isOperator=true;
+            }
+        });
+        btVirg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isOperator||tvResult.getText()=="")
+                    return;
+                writeNumber(btVirg);
+                isOperator=true;
+            }
+        });
 
+        bt0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt0);
+                isOperator=false;
+            }
+        });
+
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt1);
+                isOperator=false;
+            }
+        });
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt2);
+                isOperator=false;
+            }
+        });
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt3);
+                isOperator=false;
+            }
+        });
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt4);
+                isOperator=false;
+            }
+        });
+        bt5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt5);
+                isOperator=false;
+            }
+        });
+        bt6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt6);
+                isOperator=false;
+            }
+        });
+        bt7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt7);
+                isOperator=false;
+            }
+        });
+        bt8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt8);
+                isOperator=false;
+            }
+        });
+        bt9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeNumber(bt9);
+                isOperator=false;
+            }
+        });
+
+        btequal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calcul();
+            }
+        });
 
     }
 
     public void writeNumber(Button bt){
         tvResult.setText(tvResult.getText().toString()+bt.getTag());
+
+
     }
     public boolean isEqual(Button bt){
         if(bt.getTag().toString() == tvResult.getText().toString().substring(tvResult.getText().length() - 1))
@@ -171,5 +202,8 @@ public class MainActivity extends AppCompatActivity {
         mot="";
         mot+=lettre;
         return mot;
+    }
+    public void Calcul(){
+
     }
 }
